@@ -60,6 +60,10 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   AppendAssertions(script, input_zip)
   device_specific.FullOTA_Assertions()
+  
+  # DISABLE BACKUPTOOL FOR ADA 
+  OPTIONS.backuptool = False
+
   if OPTIONS.backuptool:
     script.Mount("/system")
     script.RunBackup("backup")
